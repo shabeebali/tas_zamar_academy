@@ -23,7 +23,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('login'), {
+    form.post(route('admin.login'), {
         onFinish: () => form.reset('password'),
     });
 };
@@ -88,7 +88,6 @@ const submit = () => {
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </PrimaryButton>
-                <q-btn label="Olakka" color="primary"></q-btn>
             </div>
         </form>
     </GuestLayout>
