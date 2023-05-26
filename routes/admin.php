@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -13,7 +14,8 @@ use Inertia\Inertia;
 
 Route::middleware(['auth:admin'])->group(function() {
     Route::get('/dashboard', function () {
-        return Inertia::render('Admin/Dashboard');
+      Inertia::share('title','Dashboard');
+      return Inertia::render('Admin/Dashboard');
     })->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -27,6 +29,8 @@ Route::middleware(['auth:admin'])->group(function() {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
+
+    Route::resource('pages', PageController::class);
 });
 Route::middleware('guest:admin')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
