@@ -169,6 +169,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Webwizo\Shortcodes\ShortcodesServiceProvider::class,
+        App\Providers\ShortcodesServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -184,6 +186,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+      'Shortcode' => Webwizo\Shortcodes\Facades\Shortcode::class,
     ])->toArray(),
 
 ];

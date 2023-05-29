@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e01e6215bed74b82e9768fa2b26fb5c0",
+    "content-hash": "c107367a3f61c313b0cf28fac2629ec1",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -6513,6 +6513,76 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "webwizo/laravel-shortcodes",
+            "version": "v1.0.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webwizo/laravel-shortcodes.git",
+                "reference": "7c12bdb6ab139a0aaa28daf177d504b15cf5a8aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webwizo/laravel-shortcodes/zipball/7c12bdb6ab139a0aaa28daf177d504b15cf5a8aa",
+                "reference": "7c12bdb6ab139a0aaa28daf177d504b15cf5a8aa",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.6.x|5.7.x|5.8.x|^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/support": "5.6.x|5.7.x|5.8.x|^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/view": "5.6.x|5.7.x|5.8.x|^6.0|^7.0|^8.0|^9.0|^10.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.9.0|^4.0|^5.0|^6.0|^7.0|^8.0",
+                "phpunit/phpunit": "^8.0|^9.0",
+                "scrutinizer/ocular": "^1.5",
+                "squizlabs/php_codesniffer": "~2.3|^3.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Webwizo\\Shortcodes\\ShortcodesServiceProvider"
+                    ],
+                    "aliases": {
+                        "Shortcode": "Webwizo\\Shortcodes\\Facades\\Shortcode"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webwizo\\Shortcodes\\": "src"
+                },
+                "classmap": [
+                    "tests/TestCase.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Asif Iqbal",
+                    "email": "webwizo@gmail.com",
+                    "homepage": "http://www.webwizo.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Wordpress like shortcodes for Laravel 5, 6, 7, 8, and 9",
+            "homepage": "https://github.com/webwizo/laravel-shortcodes",
+            "keywords": [
+                "laravel",
+                "shortcodes",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/webwizo/laravel-shortcodes/issues",
+                "source": "https://github.com/webwizo/laravel-shortcodes/tree/v1.0.24"
+            },
+            "time": "2023-02-17T16:53:53+00:00"
         }
     ],
     "packages-dev": [

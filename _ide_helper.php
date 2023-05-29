@@ -16941,6 +16941,20 @@
                     /**
          * Get the evaluated view contents for the given view.
          *
+         * @param string $view
+         * @param array $data
+         * @param array $mergeData
+         * @return \Illuminate\Contracts\View\View|string|\View 
+         * @static 
+         */ 
+        public static function make($view, $data = [], $mergeData = [])
+        {
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
+                        return $instance->make($view, $data, $mergeData);
+        }
+                    /**
+         * Get the evaluated view contents for the given view.
+         *
          * @param string $path
          * @param \Illuminate\Contracts\Support\Arrayable|array $data
          * @param array $mergeData
@@ -16948,23 +16962,9 @@
          * @static 
          */ 
         public static function file($path, $data = [], $mergeData = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->file($path, $data, $mergeData);
-        }
-                    /**
-         * Get the evaluated view contents for the given view.
-         *
-         * @param string $view
-         * @param \Illuminate\Contracts\Support\Arrayable|array $data
-         * @param array $mergeData
-         * @return \Illuminate\Contracts\View\View 
-         * @static 
-         */ 
-        public static function make($view, $data = [], $mergeData = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
-                        return $instance->make($view, $data, $mergeData);
         }
                     /**
          * Get the first view that actually exists from the given list.
@@ -16977,8 +16977,8 @@
          * @static 
          */ 
         public static function first($views, $data = [], $mergeData = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->first($views, $data, $mergeData);
         }
                     /**
@@ -16992,8 +16992,8 @@
          * @static 
          */ 
         public static function renderWhen($condition, $view, $data = [], $mergeData = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->renderWhen($condition, $view, $data, $mergeData);
         }
                     /**
@@ -17007,8 +17007,8 @@
          * @static 
          */ 
         public static function renderUnless($condition, $view, $data = [], $mergeData = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->renderUnless($condition, $view, $data, $mergeData);
         }
                     /**
@@ -17022,8 +17022,8 @@
          * @static 
          */ 
         public static function renderEach($view, $data, $iterator, $empty = 'raw|')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->renderEach($view, $data, $iterator, $empty);
         }
                     /**
@@ -17034,8 +17034,8 @@
          * @static 
          */ 
         public static function exists($view)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->exists($view);
         }
                     /**
@@ -17047,8 +17047,8 @@
          * @static 
          */ 
         public static function getEngineFromPath($path)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getEngineFromPath($path);
         }
                     /**
@@ -17060,8 +17060,8 @@
          * @static 
          */ 
         public static function share($key, $value = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->share($key, $value);
         }
                     /**
@@ -17071,8 +17071,8 @@
          * @static 
          */ 
         public static function incrementRender()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->incrementRender();
         }
                     /**
@@ -17082,8 +17082,8 @@
          * @static 
          */ 
         public static function decrementRender()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->decrementRender();
         }
                     /**
@@ -17093,8 +17093,8 @@
          * @static 
          */ 
         public static function doneRendering()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->doneRendering();
         }
                     /**
@@ -17105,8 +17105,8 @@
          * @static 
          */ 
         public static function hasRenderedOnce($id)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->hasRenderedOnce($id);
         }
                     /**
@@ -17117,8 +17117,8 @@
          * @static 
          */ 
         public static function markAsRenderedOnce($id)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->markAsRenderedOnce($id);
         }
                     /**
@@ -17129,8 +17129,8 @@
          * @static 
          */ 
         public static function addLocation($location)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->addLocation($location);
         }
                     /**
@@ -17138,12 +17138,12 @@
          *
          * @param string $namespace
          * @param string|array $hints
-         * @return \Illuminate\View\Factory 
+         * @return \Webwizo\Shortcodes\View\Factory 
          * @static 
          */ 
         public static function addNamespace($namespace, $hints)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->addNamespace($namespace, $hints);
         }
                     /**
@@ -17151,12 +17151,12 @@
          *
          * @param string $namespace
          * @param string|array $hints
-         * @return \Illuminate\View\Factory 
+         * @return \Webwizo\Shortcodes\View\Factory 
          * @static 
          */ 
         public static function prependNamespace($namespace, $hints)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->prependNamespace($namespace, $hints);
         }
                     /**
@@ -17164,12 +17164,12 @@
          *
          * @param string $namespace
          * @param string|array $hints
-         * @return \Illuminate\View\Factory 
+         * @return \Webwizo\Shortcodes\View\Factory 
          * @static 
          */ 
         public static function replaceNamespace($namespace, $hints)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->replaceNamespace($namespace, $hints);
         }
                     /**
@@ -17182,8 +17182,8 @@
          * @static 
          */ 
         public static function addExtension($extension, $engine, $resolver = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->addExtension($extension, $engine, $resolver);
         }
                     /**
@@ -17193,8 +17193,8 @@
          * @static 
          */ 
         public static function flushState()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushState();
         }
                     /**
@@ -17204,8 +17204,8 @@
          * @static 
          */ 
         public static function flushStateIfDoneRendering()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushStateIfDoneRendering();
         }
                     /**
@@ -17215,8 +17215,8 @@
          * @static 
          */ 
         public static function getExtensions()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getExtensions();
         }
                     /**
@@ -17226,8 +17226,8 @@
          * @static 
          */ 
         public static function getEngineResolver()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getEngineResolver();
         }
                     /**
@@ -17237,8 +17237,8 @@
          * @static 
          */ 
         public static function getFinder()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getFinder();
         }
                     /**
@@ -17249,8 +17249,8 @@
          * @static 
          */ 
         public static function setFinder($finder)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->setFinder($finder);
         }
                     /**
@@ -17260,8 +17260,8 @@
          * @static 
          */ 
         public static function flushFinderCache()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushFinderCache();
         }
                     /**
@@ -17271,8 +17271,8 @@
          * @static 
          */ 
         public static function getDispatcher()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getDispatcher();
         }
                     /**
@@ -17283,8 +17283,8 @@
          * @static 
          */ 
         public static function setDispatcher($events)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->setDispatcher($events);
         }
                     /**
@@ -17294,8 +17294,8 @@
          * @static 
          */ 
         public static function getContainer()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getContainer();
         }
                     /**
@@ -17306,8 +17306,8 @@
          * @static 
          */ 
         public static function setContainer($container)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->setContainer($container);
         }
                     /**
@@ -17319,8 +17319,8 @@
          * @static 
          */ 
         public static function shared($key, $default = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->shared($key, $default);
         }
                     /**
@@ -17330,8 +17330,8 @@
          * @static 
          */ 
         public static function getShared()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getShared();
         }
                     /**
@@ -17343,8 +17343,8 @@
          * @static 
          */ 
         public static function macro($name, $macro)
-        {
-                        \Illuminate\View\Factory::macro($name, $macro);
+        {            //Method inherited from \Illuminate\View\Factory         
+                        \Webwizo\Shortcodes\View\Factory::macro($name, $macro);
         }
                     /**
          * Mix another object into the class.
@@ -17356,8 +17356,8 @@
          * @static 
          */ 
         public static function mixin($mixin, $replace = true)
-        {
-                        \Illuminate\View\Factory::mixin($mixin, $replace);
+        {            //Method inherited from \Illuminate\View\Factory         
+                        \Webwizo\Shortcodes\View\Factory::mixin($mixin, $replace);
         }
                     /**
          * Checks if macro is registered.
@@ -17367,8 +17367,8 @@
          * @static 
          */ 
         public static function hasMacro($name)
-        {
-                        return \Illuminate\View\Factory::hasMacro($name);
+        {            //Method inherited from \Illuminate\View\Factory         
+                        return \Webwizo\Shortcodes\View\Factory::hasMacro($name);
         }
                     /**
          * Flush the existing macros.
@@ -17377,8 +17377,8 @@
          * @static 
          */ 
         public static function flushMacros()
-        {
-                        \Illuminate\View\Factory::flushMacros();
+        {            //Method inherited from \Illuminate\View\Factory         
+                        \Webwizo\Shortcodes\View\Factory::flushMacros();
         }
                     /**
          * Start a component rendering process.
@@ -17389,8 +17389,8 @@
          * @static 
          */ 
         public static function startComponent($view, $data = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startComponent($view, $data);
         }
                     /**
@@ -17402,8 +17402,8 @@
          * @static 
          */ 
         public static function startComponentFirst($names, $data = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startComponentFirst($names, $data);
         }
                     /**
@@ -17413,8 +17413,8 @@
          * @static 
          */ 
         public static function renderComponent()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->renderComponent();
         }
                     /**
@@ -17426,8 +17426,8 @@
          * @static 
          */ 
         public static function getConsumableComponentData($key, $default = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getConsumableComponentData($key, $default);
         }
                     /**
@@ -17440,8 +17440,8 @@
          * @static 
          */ 
         public static function slot($name, $content = null, $attributes = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->slot($name, $content, $attributes);
         }
                     /**
@@ -17451,8 +17451,8 @@
          * @static 
          */ 
         public static function endSlot()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->endSlot();
         }
                     /**
@@ -17464,8 +17464,8 @@
          * @static 
          */ 
         public static function creator($views, $callback)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->creator($views, $callback);
         }
                     /**
@@ -17476,8 +17476,8 @@
          * @static 
          */ 
         public static function composers($composers)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->composers($composers);
         }
                     /**
@@ -17489,8 +17489,8 @@
          * @static 
          */ 
         public static function composer($views, $callback)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->composer($views, $callback);
         }
                     /**
@@ -17501,8 +17501,8 @@
          * @static 
          */ 
         public static function callComposer($view)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->callComposer($view);
         }
                     /**
@@ -17513,8 +17513,8 @@
          * @static 
          */ 
         public static function callCreator($view)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->callCreator($view);
         }
                     /**
@@ -17525,8 +17525,8 @@
          * @static 
          */ 
         public static function startFragment($fragment)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startFragment($fragment);
         }
                     /**
@@ -17537,8 +17537,8 @@
          * @static 
          */ 
         public static function stopFragment()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->stopFragment();
         }
                     /**
@@ -17550,8 +17550,8 @@
          * @static 
          */ 
         public static function getFragment($name, $default = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getFragment($name, $default);
         }
                     /**
@@ -17561,8 +17561,8 @@
          * @static 
          */ 
         public static function getFragments()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getFragments();
         }
                     /**
@@ -17572,8 +17572,8 @@
          * @static 
          */ 
         public static function flushFragments()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushFragments();
         }
                     /**
@@ -17585,8 +17585,8 @@
          * @static 
          */ 
         public static function startSection($section, $content = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startSection($section, $content);
         }
                     /**
@@ -17598,8 +17598,8 @@
          * @static 
          */ 
         public static function inject($section, $content)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->inject($section, $content);
         }
                     /**
@@ -17609,8 +17609,8 @@
          * @static 
          */ 
         public static function yieldSection()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->yieldSection();
         }
                     /**
@@ -17622,8 +17622,8 @@
          * @static 
          */ 
         public static function stopSection($overwrite = false)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->stopSection($overwrite);
         }
                     /**
@@ -17634,8 +17634,8 @@
          * @static 
          */ 
         public static function appendSection()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->appendSection();
         }
                     /**
@@ -17647,8 +17647,8 @@
          * @static 
          */ 
         public static function yieldContent($section, $default = '')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->yieldContent($section, $default);
         }
                     /**
@@ -17659,8 +17659,8 @@
          * @static 
          */ 
         public static function parentPlaceholder($section = '')
-        {
-                        return \Illuminate\View\Factory::parentPlaceholder($section);
+        {            //Method inherited from \Illuminate\View\Factory         
+                        return \Webwizo\Shortcodes\View\Factory::parentPlaceholder($section);
         }
                     /**
          * Check if section exists.
@@ -17670,8 +17670,8 @@
          * @static 
          */ 
         public static function hasSection($name)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->hasSection($name);
         }
                     /**
@@ -17682,8 +17682,8 @@
          * @static 
          */ 
         public static function sectionMissing($name)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->sectionMissing($name);
         }
                     /**
@@ -17695,8 +17695,8 @@
          * @static 
          */ 
         public static function getSection($name, $default = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getSection($name, $default);
         }
                     /**
@@ -17706,8 +17706,8 @@
          * @static 
          */ 
         public static function getSections()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getSections();
         }
                     /**
@@ -17717,8 +17717,8 @@
          * @static 
          */ 
         public static function flushSections()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushSections();
         }
                     /**
@@ -17729,8 +17729,8 @@
          * @static 
          */ 
         public static function addLoop($data)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->addLoop($data);
         }
                     /**
@@ -17740,8 +17740,8 @@
          * @static 
          */ 
         public static function incrementLoopIndices()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->incrementLoopIndices();
         }
                     /**
@@ -17751,8 +17751,8 @@
          * @static 
          */ 
         public static function popLoop()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->popLoop();
         }
                     /**
@@ -17762,8 +17762,8 @@
          * @static 
          */ 
         public static function getLastLoop()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getLastLoop();
         }
                     /**
@@ -17773,8 +17773,8 @@
          * @static 
          */ 
         public static function getLoopStack()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getLoopStack();
         }
                     /**
@@ -17786,8 +17786,8 @@
          * @static 
          */ 
         public static function startPush($section, $content = '')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startPush($section, $content);
         }
                     /**
@@ -17798,8 +17798,8 @@
          * @static 
          */ 
         public static function stopPush()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->stopPush();
         }
                     /**
@@ -17811,8 +17811,8 @@
          * @static 
          */ 
         public static function startPrepend($section, $content = '')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startPrepend($section, $content);
         }
                     /**
@@ -17823,8 +17823,8 @@
          * @static 
          */ 
         public static function stopPrepend()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->stopPrepend();
         }
                     /**
@@ -17836,8 +17836,8 @@
          * @static 
          */ 
         public static function yieldPushContent($section, $default = '')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->yieldPushContent($section, $default);
         }
                     /**
@@ -17847,8 +17847,8 @@
          * @static 
          */ 
         public static function flushStacks()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushStacks();
         }
                     /**
@@ -17859,8 +17859,8 @@
          * @static 
          */ 
         public static function startTranslation($replacements = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startTranslation($replacements);
         }
                     /**
@@ -17870,8 +17870,8 @@
          * @static 
          */ 
         public static function renderTranslation()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->renderTranslation();
         }
          
@@ -18157,7 +18157,77 @@
      
 }
 
-        namespace Spatie\LaravelIgnition\Facades { 
+        namespace Webwizo\Shortcodes\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Shortcode {
+                    /**
+         * Register a new shortcode
+         *
+         * @param string $name
+         * @param callable|string $callback
+         * @return \Webwizo\Shortcodes\Shortcode 
+         * @static 
+         */ 
+        public static function register($name, $callback)
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->register($name, $callback);
+        }
+                    /**
+         * Enable the laravel-shortcodes
+         *
+         * @return \Webwizo\Shortcodes\Shortcode 
+         * @static 
+         */ 
+        public static function enable()
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->enable();
+        }
+                    /**
+         * Disable the laravel-shortcodes
+         *
+         * @return \Webwizo\Shortcodes\Shortcode 
+         * @static 
+         */ 
+        public static function disable()
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->disable();
+        }
+                    /**
+         * Compile the given string
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function compile($value)
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->compile($value);
+        }
+                    /**
+         * Remove all shortcode tags from the given content.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function strip($value)
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->strip($value);
+        }
+         
+    }
+     
+}
+
+    namespace Spatie\LaravelIgnition\Facades { 
             /**
      * 
      *
@@ -22573,6 +22643,7 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
+            class Shortcode extends \Webwizo\Shortcodes\Facades\Shortcode {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
      
 }
