@@ -62,6 +62,7 @@ class PageController extends Controller
      */
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
+      //dd($request->toArray());
         $request->validate([
           'title' => 'required',
           'url_key' => 'required|unique:pages',

@@ -1,0 +1,59 @@
+
+@font-face {
+    font-family: 'zurich_cn_btregular';
+    src: url('zurch-webfont.eot');
+    src: url('zurch-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('zurch-webfont.woff') format('woff'),
+         url('zurch-webfont.ttf') format('truetype'),
+         url('zurch-webfont.svg#zurich_cn_btregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'zurich_lt_btlight';
+    src: url('zurich-lt-bt-light.eot');
+    src: url('zurich-lt-bt-lightd41d.eot?#iefix') format('embedded-opentype'),
+         url('zurich-lt-bt-light.woff2') format('woff2'),
+         url('zurich-lt-bt-light.woff') format('woff'),
+         url('zurich-lt-bt-light.ttf') format('truetype'),
+         url('zurich-lt-bt-light.svg#zurich_lt_btlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'fertigo_proregular';
+    src: url('Fertigo_PRO-webfont.eot');
+    src: url('Fertigo_PRO-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('Fertigo_PRO-webfont.html') format('woff2'),
+         url('Fertigo_PRO-webfont.woff') format('woff'),
+         url('Fertigo_PRO-webfont.ttf') format('truetype'),
+         url('Fertigo_PRO-webfont.svg#fertigo_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'milkshake';
+    src: url('Milkshake.otf');
+    src: url('Milkshake.ttf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aller_lightregular';
+    src: url('Aller_Lt-webfont.eot');
+    src: url('Aller_Lt-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('Aller_Lt-webfont.woff2') format('woff2'),
+         url('Aller_Lt-webfont.woff') format('woff'),
+         url('Aller_Lt-webfont.ttf') format('truetype'),
+         url('Aller_Lt-webfont.svg#aller_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

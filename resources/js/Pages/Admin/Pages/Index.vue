@@ -4,7 +4,7 @@
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { router } from '@inertiajs/vue3';
 import { Head, Link } from "@inertiajs/vue3";
-import {Dialog, QTable, QTableProps} from "quasar";
+import {Dialog, Notify, QTable, QTableProps} from "quasar";
 import {onMounted, PropType, ref} from "vue";
 
 const columns: QTableProps['columns'] = [
@@ -49,6 +49,10 @@ function deletePage(id: number) {
     cancel: true
   }).onOk(() => {
     router.delete(route('admin.pages.destroy',id))
+      Notify.create({
+          type: 'info',
+          message: 'Page deleted Successfully'
+      })
   })
 }
 

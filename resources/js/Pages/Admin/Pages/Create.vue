@@ -2,9 +2,28 @@
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {Head, useForm} from "@inertiajs/vue3";
 import {onMounted, PropType, ref} from "vue";
+import {CodeJar} from 'codejar';
+import hljs from 'highlight.js'
+import 'highlight.js/styles/github.css'
+let jar = null;
 onMounted(() => {
-  console.log('Crate')
+  //console.log('Crate')
+  const editor = document.querySelector('.editor');
+  const highlight = (editor) => {
+    // highlight.js does not trims old tags,
+    // let's do it by this hack.
+    editor.textContent = editor.textContent;
+    hljs.highlightElement(editor);
+  };
+  jar = CodeJar(editor as HTMLElement, highlight, {tab: '\t'});
+  jar.updateCode(props.model.content)
 })
+
+function getCode() {
+  if(jar) {
+    console.log(jar.toString())
+  }
+}
 
 const props =defineProps({
   pageTitle: String,
@@ -30,7 +49,8 @@ const form = useForm({
 
 function save() {
   form.clearErrors()
-  console.log(route().params)
+  form.content = jar.toString()
+  //console.log(route().params)
   if(route().params.page) {
     form.put(route('admin.pages.update', { page: props.model.id}))
   } else {
@@ -60,14 +80,8 @@ function save() {
             v-model="form.title"></q-input>
         </div>
         <div class="col-12">
-          <q-editor
-            :toolbar="[
-              ['left', 'center', 'right', 'justify','bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
-              ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-              ['undo', 'redo'],
-              ['viewsource']
-            ]"
-            v-model="form.content"></q-editor>
+          <div class="text-subtitle2">Content</div>
+          <div class="editor language-html hljs language-js"></div>
         </div>
         <div class="col-12">
           <q-input
@@ -100,5 +114,16 @@ function save() {
 </template>
 
 <style scoped>
-
+.editor {
+  border-radius: 6px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  height: 340px;
+  letter-spacing: normal;
+  line-height: 20px;
+  padding: 10px;
+  tab-size: 4;
+}
 </style>
