@@ -29,7 +29,8 @@ Route::middleware(['auth:admin'])->group(function() {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-    Route::get('cms_settings',[\App\Http\Controllers\Admin\CmsSettingController::class,'view']);
+    Route::get('cms_settings',[\App\Http\Controllers\Admin\CmsSettingController::class,'view'])
+        ->name('cms_settings');
     Route::post('cms_settings',[\App\Http\Controllers\Admin\CmsSettingController::class,'store'])
         ->name('cms_settings');
 

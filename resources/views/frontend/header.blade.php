@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/stylesheet.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}"/>
     <!-- modernizr js -->
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/60806c4ca41f7a1782706b710/1e21a76cab4f5e983acc7c4fa.js");</script>

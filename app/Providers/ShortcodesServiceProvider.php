@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Shortcodes\AssetShortcode;
 use App\Shortcodes\BoldShortcode;
+use App\Shortcodes\UrlShortcode;
 use Illuminate\Support\ServiceProvider;
 use Webwizo\Shortcodes\Facades\Shortcode;
 
@@ -26,6 +28,7 @@ class ShortcodesServiceProvider extends ServiceProvider
   public function register()
   {
     Shortcode::register('b', BoldShortcode::class);
-    //Shortcode::register('i', 'App\Shortcodes\ItalicShortcode@custom');
+    Shortcode::register('asset', AssetShortcode::class);
+    Shortcode::register('url', UrlShortcode::class);
   }
 }
