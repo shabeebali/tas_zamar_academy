@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\PageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,7 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('contact',[EnquiryController::class,'contact'])->name('contact');
 Route::get('/{any}', [PageController::class,'page'])->where('any', '.*');
 
 

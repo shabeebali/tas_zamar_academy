@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/stylesheet.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}"/>
-    <!-- modernizr js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    <!-- modernizr js -->
     <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 
@@ -24,4 +24,24 @@
 
 </head>
 <body>
+@if(session('success'))
+    <script>
+        swal("Good job!", "{{session('success')}}", "success");
+    </script>
+@endif
+@if(session('warning'))
+    <script>
+        swal("Warning!", "{{session('warning')}}", "warning");
+    </script>
+@endif
+@if($errors->any())
+    <script>
+        swal("Invalid data given!", 'Please check the form before submit', "error");
+    </script>
+@endif
+@if(session('error'))
+    <script>
+        swal("Oops!", "{{session('error')}}", "error");
+    </script>
+@endif
     {!! $content !!}
