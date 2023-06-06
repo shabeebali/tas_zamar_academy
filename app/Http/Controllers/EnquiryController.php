@@ -37,6 +37,7 @@ class EnquiryController extends Controller
             try {
                 Mail::to($model->email)
                     ->bcc([
+                        'info@zamarmusicacademy.ca',
                         'info@tastechnologies.com',
                     ])
                     ->send(new EnquiryMail($model->toArray()));

@@ -22,36 +22,11 @@ class EnquiryMail extends Mailable
         $this->data = $data;
     }
 
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
+    public function build(): EnquiryMail
     {
-        return new Envelope(
-            subject: 'Enquiry Mail',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            markdown: 'mail.enquiry',
-            with: [
-                'data' => $this->data
-            ]
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
+        return $this->from('info@zamarmusicacademy.ca','Zamar Music Academy')
+            ->subject('Zamar Music Academy')
+            ->view('mail.enquiry')
+            ->with(['data' => $this->data]);
     }
 }
