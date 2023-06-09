@@ -41,6 +41,7 @@ class EnquiryController extends Controller
                         'info@tastechnologies.com',
                     ])
                     ->send(new EnquiryMail($model->toArray()));
+                Log::info('Email sent to:'.$model->email,$model->toArray());
             } catch (Exception $e) {
                 Log::debug($e->getMessage());
             }
