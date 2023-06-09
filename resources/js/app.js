@@ -17,7 +17,7 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.vue', {eager: true})
+        const pages = import.meta.glob('./Pages/Admin/**/*.vue', {eager: true})
         let page = pages[`./Pages/${name}.vue`]
         page.default.layout = name.startsWith('Admin/') ? (
             name.startsWith('Admin/Auth') ? undefined :
