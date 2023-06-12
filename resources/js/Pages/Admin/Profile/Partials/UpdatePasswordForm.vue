@@ -5,6 +5,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import {Notify} from "quasar";
 
 const passwordInput = ref(null);
 const currentPasswordInput = ref(null);
@@ -16,9 +17,15 @@ const form = useForm({
 });
 
 const updatePassword = () => {
-    form.put(route('password.update'), {
+    form.put(route('admin.password.update'), {
         preserveScroll: true,
-        onSuccess: () => form.reset(),
+        onSuccess: () => {
+            form.reset()
+            Notify.create({
+                type:'positive',
+                message: 'Password Changed Successfully'
+            })
+        },
         onError: () => {
             if (form.errors.password) {
                 form.reset('password', 'password_confirmation');

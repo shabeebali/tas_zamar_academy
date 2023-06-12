@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
+ * @property string $password
  * @mixin Eloquent
  */
 class Admin extends Authenticatable
@@ -38,5 +39,6 @@ class Admin extends Authenticatable
      */
     protected $casts = [
         'password' => 'hashed',
+        'created_at' => 'datetime: d M Y / H:i A',
     ];
 }

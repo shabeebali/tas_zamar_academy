@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\NewPasswordController;
@@ -16,6 +17,7 @@ use Inertia\Inertia;
 
 
 Route::middleware(['auth:admin'])->group(function() {
+    Route::resource('users', AdminUserController::class);
     Route::get('donations',[DonationController::class,'index'])->name('donations.index');
     Route::get('donations/{id}',[DonationController::class,'show'])->name('donations.show');
     Route::delete('donations/{id}',[DonationController::class,'destroy'])->name('donations.destroy');

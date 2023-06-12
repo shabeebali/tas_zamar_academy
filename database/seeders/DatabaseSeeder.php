@@ -33,6 +33,16 @@ class DatabaseSeeder extends Seeder
             'guard_name' => 'admin'
         ]);
 
+        Role::firstOrCreate([
+            'name' => 'Manager',
+            'guard_name' => 'admin'
+        ]);
+
+        Role::firstOrCreate([
+            'name' => 'Staff',
+            'guard_name' => 'admin'
+        ]);
+
         $user = Admin::firstOrCreate([
             'name' => 'Shabeeeb',
             'email' => 'shabeeboali@gmail.com',

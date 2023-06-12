@@ -71,10 +71,6 @@ function deletePage(id: number) {
         cancel: true
     }).onOk(() => {
         router.delete(route('admin.donations.destroy',id))
-        Notify.create({
-            type: 'info',
-            message: 'Record deleted Successfully'
-        })
     })
 }
 

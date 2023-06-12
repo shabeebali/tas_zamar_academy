@@ -71,30 +71,33 @@
 }
 </style>
 <script setup>
-import {onMounted, ref} from 'vue'
+import {onMounted, ref, watch} from 'vue'
 import { router, usePage } from '@inertiajs/vue3'
 import {Notify} from "quasar";
 const leftDrawerOpen = ref(false);
 const page = usePage()
 onMounted(() => {
-  //console.log(page.props)
-  if(page.props.flash.success) {
-    Notify.create({
-      type: 'positive',
-      message: page.props.flash.success
-    })
-  }
-  if(page.props.flash.info) {
-    Notify.create({
-      type: 'info',
-      message: page.props.flash.info
-    })
-  }
-  sidebarLinks.value = page.props.sidebar_links
+    showFlashes()
+    sidebarLinks.value = page.props.sidebar_links
 })
+watch(page,() => showFlashes(), {deep: true})
 const sidebarLinks = ref([])
 
-
+function showFlashes() {
+    //console.log(page.props)
+    if(page.props.flash.success) {
+        Notify.create({
+            type: 'positive',
+            message: page.props.flash.success
+        })
+    }
+    if(page.props.flash.info) {
+        Notify.create({
+            type: 'info',
+            message: page.props.flash.info
+        })
+    }
+}
 
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value

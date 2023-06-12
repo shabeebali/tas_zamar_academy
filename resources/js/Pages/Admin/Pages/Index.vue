@@ -49,10 +49,6 @@ function deletePage(id: number) {
     cancel: true
   }).onOk(() => {
     router.delete(route('admin.pages.destroy',id))
-      Notify.create({
-          type: 'info',
-          message: 'Page deleted Successfully'
-      })
   })
 }
 
