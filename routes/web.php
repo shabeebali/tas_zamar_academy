@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DonateController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\PageController;
 use Illuminate\Foundation\Application;
@@ -17,6 +18,8 @@ use Inertia\Inertia;
 |
 */
 Route::post('contact',[EnquiryController::class,'contact'])->name('contact');
+Route::get('donate/response',[DonateController::class,'response'])->name('donate.response');
+Route::post('donate',[DonateController::class,'donate'])->name('donate');
 Route::get('/{any}', [PageController::class,'page'])->where('any', '.*');
 
 

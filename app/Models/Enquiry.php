@@ -20,4 +20,8 @@ class Enquiry extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'created_at' => 'datetime: d M Y / H:i A'
+    ];
 }

@@ -78,32 +78,34 @@ function onRequest(reqProp: {pagination: QTableProps['pagination'], filter: stri
 
 <template>
   <Head title="Pages"></Head>
-  <q-breadcrumbs>
-    <q-breadcrumbs-el label="Dashboard" class="cursor-pointer" @click="router.visit(route('admin.dashboard'))"></q-breadcrumbs-el>
-    <q-breadcrumbs-el label="Pages"></q-breadcrumbs-el>
-  </q-breadcrumbs>
-  <q-toolbar>
-    <q-space/>
-    <q-btn label="Create Page" color="primary" @click="router.visit(route('admin.pages.create'))"></q-btn>
-  </q-toolbar>
-  <q-table
-    :rows="items"
-    :columns="columns"
-    row-key="id"
-    @request="onRequest"
-    v-model:pagination="pagination"
-  >
-    <template v-slot:body-cell-title="props">
-      <q-td>
-        <Link class="text-primary" :href="route('admin.pages.edit',props.row.id)">{{props.value}}</Link>
-      </q-td>
-    </template>
-    <template v-slot:body-cell-actions="props">
-      <q-td class="text-right">
-          <q-btn flat size="sm" round icon="delete" color="red" @click="deletePage(props.row.id)"></q-btn>
-      </q-td>
-    </template>
-  </q-table>
+    <AdminLayout>
+      <q-breadcrumbs>
+        <q-breadcrumbs-el label="Dashboard" class="cursor-pointer" @click="router.visit(route('admin.dashboard'))"></q-breadcrumbs-el>
+        <q-breadcrumbs-el label="Pages"></q-breadcrumbs-el>
+      </q-breadcrumbs>
+      <q-toolbar>
+        <q-space/>
+        <q-btn label="Create Page" color="primary" @click="router.visit(route('admin.pages.create'))"></q-btn>
+      </q-toolbar>
+      <q-table
+        :rows="items"
+        :columns="columns"
+        row-key="id"
+        @request="onRequest"
+        v-model:pagination="pagination"
+      >
+        <template v-slot:body-cell-title="props">
+          <q-td>
+            <Link class="text-primary" :href="route('admin.pages.edit',props.row.id)">{{props.value}}</Link>
+          </q-td>
+        </template>
+        <template v-slot:body-cell-actions="props">
+          <q-td class="text-right">
+              <q-btn flat size="sm" round icon="delete" color="red" @click="deletePage(props.row.id)"></q-btn>
+          </q-td>
+        </template>
+      </q-table>
+    </AdminLayout>
 </template>
 
 <style scoped>

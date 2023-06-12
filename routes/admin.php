@@ -6,6 +6,9 @@ use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DonationController;
+use App\Http\Controllers\Admin\EnquiryController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -13,10 +16,12 @@ use Inertia\Inertia;
 
 
 Route::middleware(['auth:admin'])->group(function() {
-    Route::get('/dashboard', function () {
-      Inertia::share('title','Dashboard');
-      return Inertia::render('Admin/Dashboard');
-    })->name('dashboard');
+    Route::get('donations',[DonationController::class,'index'])->name('donations.index');
+    Route::get('donations/{id}',[DonationController::class,'show'])->name('donations.show');
+    Route::delete('donations/{id}',[DonationController::class,'destroy'])->name('donations.destroy');
+    Route::get('enquiries',[EnquiryController::class,'index'])->name('enquiries.index');
+    Route::delete('enquiries/{id}',[EnquiryController::class,'destroy'])->name('enquiries.destroy');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

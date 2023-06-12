@@ -29,6 +29,11 @@
         swal("Good job!", "{{session('success')}}", "success");
     </script>
 @endif
+@if(session('info'))
+    <script>
+        swal("Notice", "{{session('info')}}", "info");
+    </script>
+@endif
 @if(session('warning'))
     <script>
         swal("Warning!", "{{session('warning')}}", "warning");

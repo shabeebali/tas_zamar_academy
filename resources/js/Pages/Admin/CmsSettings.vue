@@ -1,26 +1,28 @@
 <template>
     <Head title="CMS Settings"></Head>
-<q-card>
-    <q-toolbar>
-        <q-space/>
-        <q-btn
-            label="Save"
-            @click="save"
-            color="primary"></q-btn>
-    </q-toolbar>
-    <q-card-section>
-        <div class="row q-col-gutter-md">
-            <div class="col-12">
-                <div class="text-subtitle2">Header Content</div>
-                <div class="header-editor editor language-html hljs language-js"></div>
-            </div>
-            <div class="col-12">
-                <div class="text-subtitle2">Footer Content</div>
-                <div class="footer-editor editor language-html hljs language-js"></div>
-            </div>
-        </div>
-    </q-card-section>
-</q-card>
+    <AdminLayout>
+        <q-card>
+            <q-toolbar>
+                <q-space/>
+                <q-btn
+                    label="Save"
+                    @click="save"
+                    color="primary"></q-btn>
+            </q-toolbar>
+            <q-card-section>
+                <div class="row q-col-gutter-md">
+                    <div class="col-12">
+                        <div class="text-subtitle2">Header Content</div>
+                        <div class="header-editor editor language-html hljs language-js"></div>
+                    </div>
+                    <div class="col-12">
+                        <div class="text-subtitle2">Footer Content</div>
+                        <div class="footer-editor editor language-html hljs language-js"></div>
+                    </div>
+                </div>
+            </q-card-section>
+        </q-card>
+    </AdminLayout>
 </template>
 
 <script setup lang="ts">
@@ -30,6 +32,7 @@ import {Loading, Notify} from "quasar";
 import {onMounted} from "vue";
 import hljs from "highlight.js";
 import {CodeJar} from "codejar";
+import AdminLayout from "@/Layouts/AdminLayout.vue";
 let headerJar = null;
 let footerJar = null
 onMounted(() => {
