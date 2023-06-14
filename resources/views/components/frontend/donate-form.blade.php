@@ -4,21 +4,21 @@
     <div><span class='error'></span></div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <span><input type="text" id="txtName" name="name" placeholder="Name*" required></span>
+            <span><input type="text" id="txtName" name="name" placeholder="Name*" required value="{{old('name','')}}"></span>
         </div>
         <div class="form-group col-md-6">
             <div class="witr_form_field2">
-                <span><input type="email" id="txtEmail" name="email" placeholder="Email*" required></span>
+                <span><input type="email" id="txtEmail" name="email" placeholder="Email*" required value="{{old('email','')}}"></span>
             </div>
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <span><input type="text" id="txtLocation" name="location" placeholder="Location*" required></span>
+            <span><input type="text" id="txtLocation" name="location" placeholder="Location*" required value="{{old('location','')}}"></span>
         </div>
         <div class="form-group col-md-6">
             <span><input type="number" id="txtAmount" min="10" name="amount" placeholder="Enter Amount $"
-                         required></span>
+                         required value="{{old('amount','')}}"></span>
         </div>
     </div>
     <div class="form-row">
@@ -27,9 +27,9 @@
                 <span>
                     <select id="ddrDesignation" name="designation" required>
                        <!--<option value="" selected="" disabled="">--Select Designation--</option>-->
-                       <option>General Donation</option>
-                       <option>Operating Budget</option>
-                       <option>Charitable Programs</option>
+                       <option @if(old('designation') == 'General Donation') selected @endif>General Donation</option>
+                       <option @if(old('designation') == 'Operating Budget') selected @endif>Operating Budget</option>
+                       <option @if(old('designation') == 'Charitable Programs') selected @endif>Charitable Programs</option>
                     </select>
                 </span>
             </div>
@@ -38,12 +38,16 @@
     <div class="form-row">
         <div class="form-group col-md-12">
             <div class="witr_form_field2">
-                <span><input type="text" id="txtAddress" name="address" placeholder="Address" required></span>
+                <span><input type="text" id="txtAddress" name="address" placeholder="Address" required value="{{old('address','')}}"></span>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <span><textarea id="txtMessage" name="message" placeholder="Comments/Message"></textarea></span>
+        <span>
+            <textarea id="txtMessage" name="comment" placeholder="Comments/Message">
+                 {{old('comment','')}}
+            </textarea>
+        </span>
     </div>
     <div class="form-group text-left">
         <h3>Disclaimer:</h3>

@@ -80,7 +80,8 @@ const showPassword = ref(false)
                         <div class="col-12">
                             <q-select
                                 multiple
-                                :options="['Manager','Staff']"
+                                :options="['Admin','Staff']"
+                                clearable
                                 outlined
                                 dense
                                 label="Roles"

@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\Page;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response;
 use Inertia\Inertia;
@@ -71,5 +72,71 @@ class AdminUserController extends Controller
         $admin->syncRoles($request->input('roles'));
 
         return Response::redirectToRoute('admin.users.index')->with('success','User Created Successfully');
+    }
+
+    public function edit($id): \Inertia\Response
+    {
+        $user = Admin::find($id);
+        Inertia::share('title','Edit User');
+        $data = $user->only(['id','name','email']);
+        $roles = $user->roles;
+        $data['roles'] = [];
+        foreach ($roles as $role)
+        {
+            if($role->name !== 'super-admin') {
+                $data['roles'][] = $role->name;
+            }
+        }
+        return Inertia::render('Admin/Users/Create',[
+            'pageTitle' => 'Edit User',
+            'model' => $data
+        ]);
+    }
+
+    public function update(Request $request, $id): \Illuminate\Http\RedirectResponse
+    {
+        $user = Admin::find($id);
+        //dd($request->toArray());
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:admins,email,'.$id,
+            'roles' => 'required'
+        ]);
+
+        $user->fill($request->only([
+            'name',
+            'email',
+        ]));
+        $user->save();
+        $isSuperAdmin = false;
+        if($user->hasRole('super-admin')){
+            $isSuperAdmin = true;
+        }
+        $user->syncRoles($request->input('roles'));
+        if($isSuperAdmin) {
+            $user->assignRole('super-admin');
+        }
+        $user->save();
+        return Response::redirectToRoute('admin.users.index')->with('success','User Updated Successfully');
+    }
+
+    public function changePassword(Request $request, $id)
+    {
+        $request->validate([
+            'your_password' => [
+                'required',
+                function($attribute, $value, $fail) {
+                    $authUser = Auth::user();
+                    if(!Hash::check($value,$authUser->password)) {
+                        $fail('Incorrect password');
+                    }
+                }
+            ],
+            'new_password' => 'required',
+        ]);
+
+        $user = Admin::find($id);
+        $user->password = Hash::make($request->input('new_password'));
+        return Response::redirectToRoute('admin.users.index')->with('success','User Updated Successfully');
     }
 }

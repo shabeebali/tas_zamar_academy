@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\DonationPaymentStatus;
+use Carbon\Carbon;
 use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $comment
  * @property string $designation
  * @property array $payment_meta
+ * @property Carbon $created_at
  * @mixin Eloquent
  */
 class Donation extends Model

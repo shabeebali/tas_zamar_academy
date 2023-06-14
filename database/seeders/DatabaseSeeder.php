@@ -29,12 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $adminRole = Role::firstOrCreate([
-            'name' => 'admin',
-            'guard_name' => 'admin'
-        ]);
-
-        Role::firstOrCreate([
-            'name' => 'Manager',
+            'name' => 'Admin',
             'guard_name' => 'admin'
         ]);
 

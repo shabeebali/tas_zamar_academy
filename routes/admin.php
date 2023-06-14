@@ -17,6 +17,7 @@ use Inertia\Inertia;
 
 
 Route::middleware(['auth:admin'])->group(function() {
+    Route::post('users/change-password/{user}',[AdminUserController::class,'changePassword'])->name('users.change_password');
     Route::resource('users', AdminUserController::class);
     Route::get('donations',[DonationController::class,'index'])->name('donations.index');
     Route::get('donations/{id}',[DonationController::class,'show'])->name('donations.show');

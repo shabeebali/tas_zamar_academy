@@ -17,6 +17,7 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('donate/test/{id}',[DonateController::class,'testMail']);
 Route::post('contact',[EnquiryController::class,'contact'])->name('contact');
 Route::get('donate/response',[DonateController::class,'response'])->name('donate.response');
 Route::post('donate',[DonateController::class,'donate'])->name('donate');
