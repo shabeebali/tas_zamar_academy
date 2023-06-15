@@ -14,7 +14,7 @@ const props = defineProps({
     <AdminLayout>
         <div class="row">
             <div class="col-12 justify-center flex">
-                <q-img src="/assets/images/logo.png" width="100px"></q-img>
+                <q-img src="../../../public/assets/images/logo.png" width="100px"></q-img>
             </div>
         </div>
         <div class="text-subtitle1 text-center text-grey-7">
