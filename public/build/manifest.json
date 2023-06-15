@@ -1,25 +1,13 @@
 {
-  "node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.woff": {
-    "file": "assets/flUhRq6tzZclQEJ-Vdg-IuiaDsNa-fd84f88b.woff",
-    "src": "node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.woff"
-  },
-  "node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2": {
-    "file": "assets/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ-4a4dbc62.woff2",
-    "src": "node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
-  },
   "resources/js/app.css": {
-    "file": "assets/app-17f5f575.css",
+    "file": "assets/app-82dd4344.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
-    "assets": [
-      "assets/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ-4a4dbc62.woff2",
-      "assets/flUhRq6tzZclQEJ-Vdg-IuiaDsNa-fd84f88b.woff"
-    ],
     "css": [
-      "assets/app-17f5f575.css"
+      "assets/app-82dd4344.css"
     ],
-    "file": "assets/app-2fff4650.js",
+    "file": "assets/app-da6bc4b0.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

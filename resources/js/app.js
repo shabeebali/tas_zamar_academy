@@ -4,7 +4,7 @@ import '../css/app.css';
 import {createApp, h} from 'vue';
 import {createInertiaApp} from '@inertiajs/vue3';
 import {Dialog, Loading, Notify, Quasar} from 'quasar';
-import '@quasar/extras/material-icons/material-icons.css'
+// import '@quasar/extras/material-icons/material-icons.css'
 
 // Import Quasar css
 import 'quasar/src/css/index.sass'
