@@ -5,7 +5,8 @@ import AdminLayout from "@/Layouts/AdminLayout.vue";
 
 const props = defineProps({
     total_donations: Number,
-    total_enquiries: Number
+    total_enquiries: Number,
+    data: Array
 })
 </script>
 
@@ -22,7 +23,7 @@ const props = defineProps({
         </div>
         <q-separator/>
         <div class="row q-mt-md q-col-gutter-lg">
-            <div class="col-12 col-md-3">
+            <!--<div class="col-12 col-md-3">
                 <q-card class="bg-blue-9 text-white">
                     <q-card-section horizontal class="items-center">
                         <q-card-section class="items-center">
@@ -45,7 +46,19 @@ const props = defineProps({
                         </q-card-section>
                     </q-card-section>
                 </q-card>
-            </div>
+            </div>-->
+            <template v-for="item in data" :key="item.label">
+                <div class="col-12 col-md-3" v-if="item.label != 'Dashboard'">
+                    <q-card class="bg-blue-10 text-white cursor-pointer" @click="router.visit(item.link)">
+                        <q-card-section horizontal class="items-center justify-between">
+                            <q-card-section class="items-center">
+                                {{item.label}}
+                            </q-card-section>
+                                <q-btn color="white" :href="item.link" icon="arrow_right" flat round></q-btn>
+                        </q-card-section>
+                    </q-card>
+                </div>
+            </template>
         </div>
     </AdminLayout>
 </template>
