@@ -2,13 +2,15 @@
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {Head, useForm} from "@inertiajs/vue3";
 import {onMounted, PropType, ref} from "vue";
-import {CodeJar} from 'codejar';
-import hljs from 'highlight.js'
-import 'highlight.js/styles/github.css'
-let jar = null;
+import Editor from '@tinymce/tinymce-vue';
+
+//import {CodeJar} from 'codejar';
+//import hljs from 'highlight.js'
+//import 'highlight.js/styles/github.css'
+//let jar = null;
 onMounted(() => {
   //console.log('Crate')
-  const editor = document.querySelector('.editor');
+  /*const editor = document.querySelector('.editor');
   const highlight = (editor) => {
     // highlight.js does not trims old tags,
     // let's do it by this hack.
@@ -16,14 +18,8 @@ onMounted(() => {
     hljs.highlightElement(editor);
   };
   jar = CodeJar(editor as HTMLElement, highlight, {tab: '\t'});
-  jar.updateCode(props.model.content)
+  jar.updateCode(props.model.content)*/
 })
-
-function getCode() {
-  if(jar) {
-    console.log(jar.toString())
-  }
-}
 
 const props =defineProps({
   pageTitle: String,
@@ -49,7 +45,6 @@ const form = useForm({
 
 function save() {
   form.clearErrors()
-  form.content = jar.toString()
   //console.log(route().params)
   if(route().params.page) {
     form.put(route('admin.pages.update', { page: props.model.id}))
@@ -82,7 +77,16 @@ function save() {
                 </div>
                 <div class="col-12">
                   <div class="text-subtitle2">Content</div>
-                  <div class="editor language-html hljs language-js"></div>
+                    <editor
+                        api-key="h6py5rng8cjidtrt5iyrrmtmb07kcyqmmohjfj9at5phlro1"
+                        :init="{
+                          selector: 'textarea#editor',
+                          plugins: ['link','table','code'],  // required by the code menu item,
+                          menubar: 'edit insert format tools table'
+                        }"
+                        v-model="form.content"
+                    />
+                  <!--<div class="editor language-html hljs language-js"></div>-->
                 </div>
                 <div class="col-12">
                   <q-input

@@ -94,7 +94,7 @@ class PageController extends Controller
     public function edit(string $id): \Inertia\Response
     {
       $page = Page::find($id);
-      Inertia::share('title','Edit Page [ID:'.$id.']');
+      Inertia::share('title','Edit Page');
       return Inertia::render('Admin/Pages/Create',[
         'pageTitle' => 'Create Page',
         'model' => [

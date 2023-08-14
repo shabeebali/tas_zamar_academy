@@ -97,6 +97,7 @@ function onRequest(reqProp: {pagination: QTableProps['pagination'], filter: stri
         </template>
         <template v-slot:body-cell-actions="props">
           <q-td class="text-right">
+              <q-btn flat size="sm" round icon="edit" color="primary" :href="route('admin.pages.edit',props.row.id)"></q-btn>
               <q-btn flat size="sm" round icon="delete" color="red" @click="deletePage(props.row.id)"></q-btn>
           </q-td>
         </template>
