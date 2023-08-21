@@ -16,26 +16,26 @@ class PageController extends Controller
      */
     public function index(Request $request): \Inertia\Response
     {
-      $page = (int)$request->input('page',1);
-      $sortBy = $request->input('sort');
-      $descending = $request->input('descending','0') == 1;
-      $rowsPerPage = (int)$request->input('rpp',20);
-      $pages = Page::select(['title','url_key','id']);
-      if($sortBy && $sortBy !== 'null') {
-        $pages->orderBy($sortBy,$descending ? 'DESC' : 'ASC');
-      }
-      $data = $pages->paginate($rowsPerPage);
-      Inertia::share('title','Pages');
-      return Inertia::render('Admin/Pages/Index',[
-        'items' => $data->items(),
-        'pagination' => [
-          'page' => $page,
-          'sort' => $sortBy ?? '',
-          'rpp' => $rowsPerPage,
-          'total' => $data->total(),
-          'descending' => $descending
-        ]
-      ]);
+        $page = (int)$request->input('page', 1);
+        $sortBy = $request->input('sort');
+        $descending = $request->input('descending', '0') == 1;
+        $rowsPerPage = (int)$request->input('rpp', 20);
+        $pages = Page::select(['title', 'url_key', 'id']);
+        if ($sortBy && $sortBy !== 'null') {
+            $pages->orderBy($sortBy, $descending ? 'DESC' : 'ASC');
+        }
+        $data = $pages->paginate($rowsPerPage);
+        Inertia::share('title', 'Pages');
+        return Inertia::render('Admin/Pages/Index', [
+            'items' => $data->items(),
+            'pagination' => [
+                'page' => $page,
+                'sort' => $sortBy ?? '',
+                'rpp' => $rowsPerPage,
+                'total' => $data->total(),
+                'descending' => $descending
+            ]
+        ]);
     }
 
     /**
@@ -43,18 +43,19 @@ class PageController extends Controller
      */
     public function create(): \Inertia\Response
     {
-      Inertia::share('title','Create Page');
-      return Inertia::render('Admin/Pages/Create',[
-        'pageTitle' => 'Create Page',
-        'model' => [
-          'title' => '',
-          'content' => '',
-          'url_key' => '',
-          'meta_title' => '',
-          'meta_keywords' => '',
-          'meta_description' => ''
-        ]
-      ]);
+        Inertia::share('title', 'Create Page');
+        return Inertia::render('Admin/Pages/Create', [
+            'pageTitle' => 'Create Page',
+            'tiny_mce_url' => asset('assets/js/tinymce/tinymce.min.js'),
+            'model' => [
+                'title' => '',
+                'content' => '',
+                'url_key' => '',
+                'meta_title' => '',
+                'meta_keywords' => '',
+                'meta_description' => ''
+            ]
+        ]);
     }
 
     /**
@@ -62,22 +63,22 @@ class PageController extends Controller
      */
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
-      //dd($request->toArray());
+        //dd($request->toArray());
         $request->validate([
-          'title' => 'required',
-          'url_key' => 'required|unique:pages',
+            'title' => 'required',
+            'url_key' => 'required|unique:pages',
         ]);
 
         $page = Page::create($request->only([
-          'title',
-          'content',
-          'url_key',
-          'meta_title',
-          'meta_keywords',
-          'meta_description'
+            'title',
+            'content',
+            'url_key',
+            'meta_title',
+            'meta_keywords',
+            'meta_description'
         ]));
 
-        return Response::redirectToRoute('admin.pages.index')->with('success','Page Saved Successfully');
+        return Response::redirectToRoute('admin.pages.index')->with('success', 'Page Saved Successfully');
     }
 
     /**
@@ -93,20 +94,21 @@ class PageController extends Controller
      */
     public function edit(string $id): \Inertia\Response
     {
-      $page = Page::find($id);
-      Inertia::share('title','Edit Page');
-      return Inertia::render('Admin/Pages/Create',[
-        'pageTitle' => 'Create Page',
-        'model' => [
-          'id' => $page->id,
-          'title' => $page->title,
-          'content' => $page->content ?? '',
-          'url_key' => $page->url_key,
-          'meta_title' => $page->meta_title ?? '',
-          'meta_keywords' => $page->meta_keywords ?? '',
-          'meta_description' => $page->meta_description ?? ''
-        ]
-      ]);
+        $page = Page::find($id);
+        Inertia::share('title', 'Edit Page');
+        return Inertia::render('Admin/Pages/Create', [
+            'pageTitle' => 'Create Page',
+            'tiny_mce_url' => asset('assets/js/tinymce/tinymce.min.js'),
+            'model' => [
+                'id' => $page->id,
+                'title' => $page->title,
+                'content' => $page->content ?? '',
+                'url_key' => $page->url_key,
+                'meta_title' => $page->meta_title ?? '',
+                'meta_keywords' => $page->meta_keywords ?? '',
+                'meta_description' => $page->meta_description ?? ''
+            ]
+        ]);
     }
 
     /**
@@ -114,24 +116,24 @@ class PageController extends Controller
      */
     public function update(Request $request, string $id): \Illuminate\Http\RedirectResponse
     {
-      // dd($request->toArray());
-      $page = Page::find($id);
-      $request->validate([
-        'title' => 'required',
-        'url_key' => 'required|unique:pages,url_key,'.$id,
-      ]);
+        // dd($request->toArray());
+        $page = Page::find($id);
+        $request->validate([
+            'title' => 'required',
+            'url_key' => 'required|unique:pages,url_key,' . $id,
+        ]);
 
-      $page->fill($request->only([
-        'title',
-        'content',
-        'url_key',
-        'meta_title',
-        'meta_keywords',
-        'meta_description'
-      ]));
-      $page->save();
+        $page->fill($request->only([
+            'title',
+            'content',
+            'url_key',
+            'meta_title',
+            'meta_keywords',
+            'meta_description'
+        ]));
+        $page->save();
 
-      return Response::redirectToRoute('admin.pages.index')->with('success','Page Updated Successfully');
+        return Response::redirectToRoute('admin.pages.index')->with('success', 'Page Updated Successfully');
     }
 
     /**
@@ -139,8 +141,8 @@ class PageController extends Controller
      */
     public function destroy(string $id): \Illuminate\Http\RedirectResponse
     {
-      $page = Page::find($id);
-      $page?->delete();
-      return Redirect::back()->with('success','Page Deleted Successfully');
+        $page = Page::find($id);
+        $page?->delete();
+        return Redirect::back()->with('success', 'Page Deleted Successfully');
     }
 }

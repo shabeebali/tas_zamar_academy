@@ -42,7 +42,8 @@ class HandleInertiaRequests extends Middleware
               'success' => fn () => $request->session()->get('success'),
               'info' => fn () => $request->session()->get('info')
             ],
-            'sidebar_links' => MenuBuilder::build()
+            'sidebar_links' => MenuBuilder::build(),
+            'logo_url' => asset('assets/images/logo.png')
         ]);
     }
 }

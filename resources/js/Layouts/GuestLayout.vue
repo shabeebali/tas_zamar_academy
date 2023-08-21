@@ -1,13 +1,14 @@
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
+import {Link, usePage} from '@inertiajs/vue3';
+const page = usePage()
 </script>
 
 <template>
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <div>
             <Link href="/">
-                <img src="/assets/images/logo.png"/>
+                <img :src="page.props.logo_url"/>
             </Link>
         </div>
 

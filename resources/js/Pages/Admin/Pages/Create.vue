@@ -3,6 +3,7 @@ import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {Head, useForm} from "@inertiajs/vue3";
 import {onMounted, PropType, ref} from "vue";
 import Editor from '@tinymce/tinymce-vue';
+import {assert} from "@vue/compiler-core";
 
 //import {CodeJar} from 'codejar';
 //import hljs from 'highlight.js'
@@ -23,6 +24,7 @@ onMounted(() => {
 
 const props =defineProps({
   pageTitle: String,
+  tinymce_url: String,
   model: Object as PropType<{
     id?: number;
     title: string;
@@ -78,7 +80,7 @@ function save() {
                 <div class="col-12">
                   <div class="text-subtitle2">Content</div>
                     <editor
-                        api-key="h6py5rng8cjidtrt5iyrrmtmb07kcyqmmohjfj9at5phlro1"
+                        :tinymce-script-src="tiny_mce_url"
                         :init="{
                           selector: 'textarea#editor',
                           plugins: ['link','table','code'],  // required by the code menu item,
