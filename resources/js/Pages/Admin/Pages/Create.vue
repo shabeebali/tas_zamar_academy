@@ -24,7 +24,7 @@ onMounted(() => {
 
 const props =defineProps({
   pageTitle: String,
-  tinymce_url: String,
+  tiny_mce_url: String,
   model: Object as PropType<{
     id?: number;
     title: string;
